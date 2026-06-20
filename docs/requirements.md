@@ -2,12 +2,12 @@
 
 ## 目的
 
-Raspberry Pi 上で LED を点滅制御できる最小構成のアプリケーションを作る。
+Raspberry Pi 4 Model B 上で wiringPi を使い、LED を点滅制御できる最小構成のアプリケーションを作る。
 
 ## 機能要件
 
-- GPIO を初期化できること
-- LED を ON/OFF できること
+- wiringPi で GPIO を初期化できること
+- wiringPi の `digitalWrite` で LED を ON/OFF できること
 - シンプルな点滅処理を実行できること
 - エラー発生時に終了コードを返すこと
 

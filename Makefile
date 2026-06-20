@@ -1,5 +1,6 @@
 CC := gcc
 CFLAGS := -Wall -Wextra -O2
+LDLIBS := -lwiringPi
 TARGET_DIR := bin
 TARGET := $(TARGET_DIR)/raspberrypi-iot-led
 SOURCES := src/main.c src/gpio.c
@@ -9,7 +10,7 @@ SOURCES := src/main.c src/gpio.c
 all: $(TARGET)
 
 $(TARGET): $(SOURCES) | $(TARGET_DIR)
-	$(CC) $(CFLAGS) -o $@ $(SOURCES)
+	$(CC) $(CFLAGS) -o $@ $(SOURCES) $(LDLIBS)
 
 $(TARGET_DIR):
 	mkdir -p $(TARGET_DIR)
