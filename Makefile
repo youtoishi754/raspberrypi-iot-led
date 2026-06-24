@@ -3,7 +3,7 @@ CFLAGS := -Wall -Wextra -O2
 LDLIBS := -lwiringPi
 TARGET_DIR := bin
 TARGET := $(TARGET_DIR)/raspberrypi-iot-led
-SOURCES := src/main.c src/gpio.c
+SOURCES := src/main.c
 
 .PHONY: all clean
 

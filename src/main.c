@@ -1,21 +1,55 @@
-#include "gpio.h"
-
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 #include <wiringPi.h>
 
+enum {
+	kLedBcmPin = 17,
+	kLedActive = 1,
+	kLedIdle = 0,
+	kBlinkRounds = 5,
+	kDelayFloorMs = 500,
+	kDelaySpanMs = 501
+};
+
+static int led_prepare(int pin) {
+	if (wiringPiSetupGpio() == -1) {
+		return -1;
+	}
+
+	pinMode(pin, OUTPUT);
+	digitalWrite(pin, LOW);
+	return 0;
+}
+
+static int led_set_state(int pin, int value) {
+	digitalWrite(pin, value ? HIGH : LOW);
+	return 0;
+}
+
+static void led_release(int pin) {
+	digitalWrite(pin, LOW);
+}
+
 int main(void) {
-    if (gpio_init(LED_PIN) != 0) {
-        fprintf(stderr, "wiringPi initialization failed\n");
-        return 1;
-    }
+	if (led_prepare(kLedBcmPin) != 0) {
+		fprintf(stderr, "GPIO setup could not be completed\n");
+		return 1;
+	}
 
-    for (int i = 0; i < BLINK_COUNT; ++i) {
-        gpio_write(LED_PIN, LED_ON);
-        delay(BLINK_INTERVAL_MS);
-        gpio_write(LED_PIN, LED_OFF);
-        delay(BLINK_INTERVAL_MS);
-    }
+	srand((unsigned int)time(NULL));
 
-    gpio_cleanup(LED_PIN);
-    return 0;
+	for (int round = 0; round < kBlinkRounds; ++round) {
+		int wait_ms = kDelayFloorMs + (rand() % kDelaySpanMs);
+
+		printf("cycle %d waiting %d ms\n", round + 1, wait_ms);
+		led_set_state(kLedBcmPin, kLedActive);
+		delay(wait_ms);
+		led_set_state(kLedBcmPin, kLedIdle);
+		delay(wait_ms);
+	}
+
+	led_release(kLedBcmPin);
+	return 0;
 }
