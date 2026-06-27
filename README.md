@@ -1,33 +1,37 @@
 # raspberrypi-iot-led
 
-Raspberry Pi 4 Model B で wiringPi を使って LED を制御するためのシンプルな C プロジェクトです。
+<div align="center">
+	<img alt="C" src="https://img.shields.io/badge/C-A8B9CC?logo=c&logoColor=white" />
+	<img alt="wiringPi" src="https://img.shields.io/badge/wiringPi-2D5BFF?logo=raspberrypi&logoColor=white" />
+	<img alt="Raspberry Pi 4 Model B" src="https://img.shields.io/badge/Raspberry%20Pi-4%20Model%20B-C51A4A?logo=raspberrypi&logoColor=white" />
+	<img alt="gcc" src="https://img.shields.io/badge/gcc-00599C?logo=gnu&logoColor=white" />
+</div>
 
-## 構成
+Raspberry Pi 4 Model B で wiringPi を使って LED を点滅させるシンプルな C プロジェクトです。
 
-- `src/main.c` : エントリポイント
-- `src/gpio.c` / `src/gpio.h` : wiringPi ベースの GPIO 制御
+## 概要
+
+- `src/main.c` : LED 点滅処理本体
 - `docs/requirements.md` : 要件メモ
-- `docs/system_architecture.png` : システム構成図
-- `docs/circuit_diagram.png` : 回路図
-- `Makefile` : ビルド定義
+- `docs/project-prerequisites.md` : 実装前の前提条件
 
-`images/` は必要になったら追加します。今回は jpg は入れません。
-
-## 依存
+## 前提
 
 - wiringPi
 - gcc
 
 ## ビルド
 
-```bash
-make
+`make` は使わず、`src/main.c` を直接コンパイルします。
+
+```text
+gcc -Wall -Wextra -O2 -o src/raspberrypi-iot-led src/main.c -lwiringPi
 ```
 
 ## 実行
 
 Raspberry Pi 4 Model B 上で wiringPi が使える状態で実行してください。
 
-```bash
-./bin/raspberrypi-iot-led
+```text
+./src/raspberrypi-iot-led
 ```
