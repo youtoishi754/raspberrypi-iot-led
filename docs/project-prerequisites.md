@@ -138,3 +138,19 @@ docs(readme): 配線手順を整理する
 - `docs/project-prerequisites.md` — 実装前の前提条件
 - `docs/requirements.md` — LED アプリの要件
 - `README.md` — プロジェクト概要と使い方
+
+## よく使うコマンド類。（例
+
+developからブランチを切る場合
+```bash
+git switch develop
+git pull
+git switch -c docs/organize-docs
+```
+またはcheckoutなら
+```bash
+git checkout develop
+git pull
+git checkout -b docs/organize-docs
+```
+
