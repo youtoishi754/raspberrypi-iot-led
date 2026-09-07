@@ -9,8 +9,8 @@ enum {
 	kLedBcmPin = 17,
 	kLedActive = 1,
 	kLedIdle = 0,
-	kBlinkRounds = 5,
-	kDelayFloorMs = 500,
+	kBlinkRounds = 20,
+	kDelayFloorMs = 100,
 	kDelaySpanMs = 501
 };
 
@@ -32,9 +32,10 @@ static int led_set_state(int pin, int value) {
 }
 
 // 終了時に LED を消灯する。
-static void led_release(int pin) {
+/*static void led_release(int pin) {
 	digitalWrite(pin, LOW);
 }
+*/
 
 int main(void) {
 	// GPIO の準備に失敗したら、エラーを出して終了する。
@@ -61,6 +62,6 @@ int main(void) {
 	}
 
 	// 終了前に LED を消灯する。
-	led_release(kLedBcmPin);
+	//led_release(kLedBcmPin);
 	return 0;
 }
