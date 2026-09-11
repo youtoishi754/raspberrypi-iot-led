@@ -7,11 +7,11 @@
 	<img alt="gcc" src="https://img.shields.io/badge/gcc-00599C?logo=gnu&logoColor=white" />
 </div>
 
-Raspberry Pi 4 Model B で wiringPi を使って LED を点滅させるシンプルな C プロジェクトです。
+Raspberry Pi 4 Model B で wiringPi を使って LED をサイクルごとに不規則に点滅させるシンプルな C プロジェクトです。
 
 ## 概要
 
-- `src/main.c` : LED 点滅処理本体
+- `src/main.c` : LED 点滅処理プログラム
 - `docs/requirements.md` : 要件メモ
 - `docs/project-prerequisites.md` : 実装前の前提条件
 
@@ -22,10 +22,10 @@ Raspberry Pi 4 Model B で wiringPi を使って LED を点滅させるシンプ
 
 ## ビルド
 
-`make` は使わず、`src/main.c` を直接コンパイルします。
+`src/main.c` を直接コンパイルします。
 
 ```text
-gcc -Wall -Wextra -O2 -o src/raspberrypi-iot-led src/main.c -lwiringPi
+gcc main.c -o main -lwiringPi
 ```
 
 ## 実行
