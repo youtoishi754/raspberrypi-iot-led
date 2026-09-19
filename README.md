@@ -22,40 +22,41 @@ Raspberry Pi 4 Model B で wiringPi を使って LED をサイクルごとに不
 
 ## wiringPi の導入
 
-Raspberry Pi 上で以下のコマンドを実行します。
+Raspberry Pi 上で以下の手順を実行します。
 
-### 1. パッケージ情報を更新
+**1. パッケージ情報を更新**
 
 ```bash
 sudo apt update
 ```
 
-### 2. Git をインストール
+**2. Git をインストール**
 
 ```bash
 sudo apt install git
 ```
 
-### 3. wiringPi を取得
+**3. wiringPi を取得**
 
 ```bash
 git clone https://github.com/WiringPi/WiringPi.git
 ```
 
-### 4. wiringPi をビルド・インストール
+**4. wiringPi をビルド・インストール**
 
 ```bash
 cd WiringPi
 ./build
 ```
 
-### 5. インストール確認
+**5. インストール確認**
 
 ```bash
 gpio -v
 ```
 
 バージョン情報が表示されれば、wiringPi の導入は完了です。
+
 
 
 ## ビルド
