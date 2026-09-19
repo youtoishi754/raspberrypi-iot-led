@@ -17,8 +17,11 @@ Raspberry Pi 4 Model B で wiringPi を使って LED をサイクルごとに不
 
 ## 前提
 
-- wiringPi
+- Raspberry Pi OS
+- Raspberry Pi 4 Model B
+- Git
 - gcc
+- wiringPi
 
 ## wiringPi の導入
 
