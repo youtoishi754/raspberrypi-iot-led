@@ -64,7 +64,7 @@ gpio -v
 
 ## ビルド
 
-`src/main.c` を直接コンパイルします。
+`src/main.c` /srcに入ってmain.cを直接コンパイルします。
 
 ```text
 gcc main.c -o main -lwiringPi
@@ -75,7 +75,7 @@ gcc main.c -o main -lwiringPi
 Raspberry Pi 4 Model B 上で wiringPi が使える状態で実行してください。
 
 ```text
-./src/raspberrypi-iot-led
+./main
 ```
 ##動作確認
 https://github.com/user-attachments/assets/03e6dda3-f160-4d29-89f8-44078c25167a
