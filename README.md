@@ -102,4 +102,4 @@ gcc main.c -o main -lwiringPi
 
 実際の動作は以下の動画で確認できます。
 
-https://github.com/user-attachments/assets/03e6dda3-f160-4d29-89f8-44078c25167a
+[https://github.com/user-attachments/assets/03e6dda3-f160-4d29-89f8-44078c25167a](https://github.com/user-attachments/assets/ffda5e40-e3de-455b-b9af-1eab2bbaa26d)
