@@ -7,8 +7,8 @@
 // LED 制御に使う定数をまとめる。
 enum {
 	kLedBcmPin = 17,
-	kLedActive = 1,
-	kLedIdle = 0,
+	kLedActive = 0,
+	kLedIdle = 1,
 	kBlinkRounds = 20,
 	kDelayFloorMs = 100,
 	kDelaySpanMs = 501
@@ -32,10 +32,10 @@ static int led_set_state(int pin, int value) {
 }
 
 // 終了時に LED を消灯する。
-/*static void led_release(int pin) {
+static void led_release(int pin) {
 	digitalWrite(pin, LOW);
 }
-*/
+
 
 int main(void) {
 	// GPIO の準備に失敗したら、エラーを出して終了する。
@@ -60,8 +60,9 @@ int main(void) {
 		led_set_state(kLedBcmPin, kLedIdle);
 		delay(wait_ms);
 	}
-
+	
 	// 終了前に LED を消灯する。
-	//led_release(kLedBcmPin);
+	led_release(kLedBcmPin);
+	
 	return 0;
 }
