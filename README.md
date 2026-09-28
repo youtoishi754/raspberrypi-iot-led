@@ -7,7 +7,7 @@
 	<img alt="gcc" src="https://img.shields.io/badge/gcc-00599C?logo=gnu&logoColor=white" />
 </div>
 
-Raspberry Pi 4 Model B で wiringPi を使い、LED をサイクルごとに不規則に点滅させるシンプルな C プロジェクトです。
+Raspberry Pi 4 Model B で wiringPi を使い、LED を単純に点滅させるシンプルな C プロジェクトです。
 
 ## 概要
 
@@ -96,7 +96,9 @@ gcc main.c -o main -lwiringPi
 ./main
 ```
 
-プログラムを実行すると、Raspberry Pi に接続した LED がサイクルごとに不規則に点滅します。
+プログラムを実行すると、Raspberry Pi に接続した LED が一定間隔で点滅します。
+
+停止するには `Ctrl+C` を押してください。
 
 ## 動作確認
 
