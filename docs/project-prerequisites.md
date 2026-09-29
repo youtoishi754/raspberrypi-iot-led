@@ -46,51 +46,13 @@ gcc -o src/raspberrypi-iot-led src/main.c -lwiringPi
 
 ## Branch Strategy
 
-ブランチ運用は小さなサンプルでも整理しておきます。`main` への直 push は避け、必要に応じて作業ブランチを切ります。
+- `main`: 動作確認済みの安定版
+- `develop`: 開発の統合ブランチ
+- 作業ブランチは `develop` から切り、PR を経て `develop` → `main` の順にマージします。
+- `main` と `develop` への直接 push は避けます。
 
-```text
-main
-└── feature/*
-```
-
-### PR フロー
-
-```text
-feature/xxx → main（必要なら PR を挟む）
-```
-
-### ブランチ名の例
-
-```text
-feature/blink-random-delay
-fix/gpio-init-error
-docs/update-readme
-```
-
-### ブランチ切り替え例
-
-```text
-# 既存ブランチへ切り替える
-git switch main
-git switch feature/blink-random-delay
-
-# 新しい作業ブランチを作成して切り替える
-git switch -c feature/fix-gpio-init
-git switch -c docs/update-readme
-
-# 直前のブランチへ戻る
-git switch -
-```
-
-作業中の変更がある場合は、先に退避してから切り替えます。
-
-```text
-git status
-git stash push -m "WIP"
-git switch feature/xxx
-git stash pop
-```
-
+ブランチ名は `feature/*`（機能追加）、`fix/*`（不具合修正）、`docs/*`（ドキュメント更新）とします。
+例: `feature/blink-fixed-interval`
 ## Commit Message Format
 
 コミットメッセージは Conventional Commits を基本にします。
